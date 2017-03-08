@@ -1,0 +1,18 @@
+CREATE TABLE filmid(
+	nimi VARCHAR(50) NOT NULL PRIMARY KEY,
+	aasta INT,
+	raha INT
+);
+
+INSERT INTO filmid VALUES ('Logan', 2017, 88411916);
+INSERT INTO filmid VALUES ('The Martian', 2015, 228433663);
+INSERT INTO filmid VALUES ('Jason Bourne', 2016, 162434410);
+
+mysql> SELECT * FROM filmid;
++--------------+-------+-----------+
+| nimi         | aasta | raha      |
++--------------+-------+-----------+
+| Jason Bourne |  2016 | 162434410 |
+| Logan        |  2017 |  88411916 |
+| The Martian  |  2015 | 228433663 |
++--------------+-------+-----------+
