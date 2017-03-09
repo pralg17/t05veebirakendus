@@ -1,0 +1,8 @@
+CREATE TABLE j_plants(
+  name VARCHAR(30) NOT NULL PRIMARY KEY,
+  hind FLOAT
+);
+
+INSERT INTO j_plants VALUES ('Roosbegoonia', 5.90);
+INSERT INTO j_plants VALUES ('T‰‰kliilia', 7.90);
+INSERT INTO j_plants VALUES ('Harilik kikkapuu', 10.90);
