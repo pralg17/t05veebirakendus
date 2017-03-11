@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+		<title>App</title>
+		<script>
+			var connection = new XMLHttpRequest();
+			connection.onreadystatechange=data_here;
+			function searchData(){
+			var v_title = document.getElementById("title_search").value;
+			connection.open("GET", "/find?title="+v_title, true);
+			connection.send();
+			}
+			function data_here(){
+			document.getElementById("Result").innerHTML=connection.responseText;
+			}
+			function ShowAllData(){
+			connection.open("GET", "/showAll", true);
+			connection.send();
+			}
+			function add_Data(){
+			var title = document.getElementById("n_game_title").value;
+			var platform = document.getElementById("n_game_platform").value;
+			var sales = document.getElementById("n_game_sales").value;
+			connection.open("GET", "/addNewGame?title="+title+"&platform="+platform+"&sales="+sales, true);
+			connection.send();
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Search</h1>
+		<input type="text" id="title_search" />
+		<input type="button" value="Search" onclick="searchData()">
+		
+		<br><br>
+		
+		<h1>All Data</h1>
+		<input type="button" value="Show" onclick="ShowAllData()">
+		
+		<br><br>
+		
+		<h1>New Game</h1>
+		<input type="text" id="n_game_title" />
+		<input type="text" id="n_game_platform" />
+		<input type="text" id="n_game_sales" />
+		<input type="button" value="Add" onclick="add_Data()">
+		
+		<br><br>
+		
+		<div id="Result">Results Will Appear Here</div>
+	</body>
+</html>
