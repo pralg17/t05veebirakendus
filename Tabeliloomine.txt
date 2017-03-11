@@ -1,0 +1,9 @@
+CREATE TABLE vgames(
+title VARCHAR(30) NOT NULL PRIMARY KEY,
+platform VARCHAR(30) NOT NULL,
+sales INT(11)
+);
+
+INSERT INTO vgames VALUES('Nioh', 'PS4', 106299);
+INSERT INTO vgames VALUES('Pokemon Sun/Moon', '3DS', 28570);
+INSERT INTO vgames VALUES('Resident Evil VII: Biohazard ', 'PS4',  32891);
