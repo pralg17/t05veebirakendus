@@ -1,0 +1,43 @@
+CREATE TABLE kitarrid(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	tootja VARCHAR(100),
+	mudel VARCHAR(100),
+	hind int
+);
+
+INSERT INTO kitarrid VALUES (NULL, "Ibanez", "S-Series",1500);
+INSERT INTO kitarrid VALUES (NULL, "Vintage", "Les Paul",1000);
+
+
+
+
+CREATE TABLE kitarrid(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	brand VARCHAR(100),
+	model VARCHAR(150),
+	price DECIMAL (8, 2),
+	strings INT,
+	type VARCHAR(10)
+);
+
+INSERT INTO kitarrid(id,brand,model,price,strings,type) VALUES (NULL,'Ibanez','AT100CL-SB',2673.00,6,'r');
+INSERT INTO kitarrid(id,brand,model,price,strings,type) VALUES (NULL,'Ibanez','EGEN8-PLB',877.00,6,'r');
+INSERT INTO kitarrid(id,brand,model,price,strings,type) VALUES (NULL,'Ibanez','GRG121DX-BKF',253.00,6,'r');
+INSERT INTO kitarrid(id,brand,model,price,strings,type) VALUES (NULL,'Vintage','Icon V6mrtbg',507.00,6,'r');
+INSERT INTO kitarrid(id,brand,model,price,strings,type) VALUES (NULL,'Vintage','Reissued V6MSSB',303.00,6,'r');
+INSERT INTO kitarrid(id,brand,model,price,strings,type) VALUES (NULL,'Chapman Guitars','ML-2 AS',482.00,6,'r');
+INSERT INTO kitarrid(id,brand,model,price,strings,type) VALUES (NULL,'Epiphone','Les Paul Standard Ebony',429.00,6,'r');
+INSERT INTO kitarrid(id,brand,model,price,strings,type) VALUES (NULL,'Vintage','V100WR',414.00,6,'r');
+INSERT INTO kitarrid(id,brand,model,price,strings,type) VALUES (NULL,'Chapman Guitars','ML-2 TB LH',537.00,6,'l');
+INSERT INTO kitarrid(id,brand,model,price,strings,type) VALUES (NULL,'Dean Guitars','Dimebag Razorback Exp. LH',1129.00,6,'l');
+INSERT INTO kitarrid(id,brand,model,price,strings,type) VALUES (NULL,'Epiphone','SG G-400 Pro CH LH',389.00,6,'l');
+INSERT INTO kitarrid(id,brand,model,price,strings,type) VALUES (NULL,'Ibanez','GRG170DXL-BKN Lefthand',329.00,6,'l');
+INSERT INTO kitarrid(id,brand,model,price,strings,type) VALUES (NULL,'Ibanez','RG721FML-BIF',838.00,6,'l');
+INSERT INTO kitarrid(id,brand,model,price,strings,type) VALUES (NULL,'Vintage','Icon LV100MRPGM',482.00,6,'l');
+INSERT INTO kitarrid(id,brand,model,price,strings,type) VALUES (NULL,'Vintage','LV100AFD Paradise Lefthand',459.00,6,'l');
+INSERT INTO kitarrid(id,brand,model,price,strings,type) VALUES (NULL,'Dean Guitars','Signature MAB7 Warrior',1336.00,7,'r');
+INSERT INTO kitarrid(id,brand,model,price,strings,type) VALUES (NULL,'Ibanez','RG3727FZ',2108.00,7,'r');
+INSERT INTO kitarrid(id,brand,model,price,strings,type) VALUES (NULL,'Ibanez','RG7421-WNF',476.00,7,'r');
+INSERT INTO kitarrid(id,brand,model,price,strings,type) VALUES (NULL,'Chapman Guitars','ML1-8 RS Rob Scallon',924.00,8,'r');
+INSERT INTO kitarrid(id,brand,model,price,strings,type) VALUES (NULL,'Ibanez','JCRG20138-BGA',4109.00,8,'r');
+INSERT INTO kitarrid(id,brand,model,price,strings,type) VALUES (NULL,'Ibanez','RG8-BK',538.00,8,'r');

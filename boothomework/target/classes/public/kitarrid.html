@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Kitarrid proov</title>
+		
+		<style>
+			th {
+				text-align: left;
+			}
+		</style>
+		
+	</head>
+	
+	<body>
+		<h2>Loetelu</h2>
+		<div><table id="guitarList"></table></div>
+		
+		<h2>Lisa</h2>
+		<label>Tootja</label><br>
+		<input id="guitarBrand" type="text"><br>
+		<label>Mudel</label><br>
+		<input id="guitarModel" type="text"><br>
+		<label>Hind</label><br>
+		<input id="guitarPrice" type="text"><br>
+		<label>Keelte arv</label><br>
+		<input id="guitarStrings" type="text"><br>
+		<label>Tüüp</label><br>
+		<input id="guitarType" type="text"><br>
+		<input type="button" value="lisa" onclick="addNewGuitar()">
+		
+		<h2>Kustuta</h2>
+		<label>ID</label><br>
+		<input id="deleteGuitarId" type="text">
+		<input type="button" value="kustuta" onclick="deleteGuitar()">
+		
+		
+		<script>
+			var connection = new XMLHttpRequest();
+			connection.onreadystatechange = guitarData;
+			
+			function displayGuitarList() {
+				connection.open("GET", "/loetelu", true);
+				connection.send();
+			}
+			displayGuitarList();
+			
+			function addNewGuitar() {
+				var gBrand = document.getElementById("guitarBrand").value;
+				var gModel = document.getElementById("guitarModel").value;
+				var gPrice = document.getElementById("guitarPrice").value;
+				var gStrings = document.getElementById("guitarStrings").value;
+				var gType = document.getElementById("guitarType").value;
+				connection.open("GET", "/lisa?brand=" + gBrand + "&model=" +
+					gModel + "&price=" + gPrice + "&strings=" + gStrings + "&type=" + gType, true);
+				connection.send();
+			}
+			
+			function deleteGuitar() {
+				var delGuitar = document.getElementById("deleteGuitarId").value;
+				connection.open("GET", "/kustuta?id=" + delGuitar, true);
+				connection.send();
+			}
+			
+			function guitarData() {
+				document.getElementById("guitarList").innerHTML = connection.responseText;
+			}			
+			
+		</script>
+	</body>
+
+
+</html>
