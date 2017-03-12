@@ -1,0 +1,18 @@
+CREATE TABLE `hinrek`.`Cars` (
+    `mark` VARCHAR(255) NOT NULL ,
+    `mudel` VARCHAR(255) NOT NULL ,
+    `voimsus` INT NOT NULL)
+    ENGINE = InnoDB;
+
+INSERT INTO `cars` (`mark`, `mudel`, `voimsus`) VALUES
+    ('Audi', 'A4', '145'),
+    ('BMW', '320d', '142'),
+    ('Volvo', 's40', '420'),
+    ('Tesla', 'ModelS p100d', '1000000');
+
+ALTER TABLE `cars` ADD `id` INT NOT NULL AUTO_INCREMENT FIRST, ADD UNIQUE (`id`);
+ALTER TABLE `cars` DROP PRIMARY KEY, ADD PRIMARY KEY(`id`);
+
+INSERT INTO `cars` (`id`, `mark`, `mudel`, `voimsus`) VALUES
+    (NULL, 'Audi', 'A8', '220'),
+    (NULL, 'Audi', 'RS6', '666');
