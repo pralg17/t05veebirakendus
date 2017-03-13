@@ -15,6 +15,7 @@ public class Car {
     String mark;
     String mudel;
     Integer voimsus;
+
     @Override
     public String toString() {
         return "<tr><td>" + id + "</td><td>" + mark + "</td><td>" + mudel + "</td><td>" + voimsus + "</td></tr>";

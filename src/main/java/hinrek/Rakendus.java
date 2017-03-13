@@ -1,10 +1,10 @@
 package hinrek;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
 @SpringBootApplication
@@ -15,7 +15,7 @@ public class Rakendus {
     @RequestMapping("/listall")
     String listall(String mark) {
         StringBuffer sb = new StringBuffer();
-        for(Car item : carDao.findAll()){
+        for (Car item : carDao.findAll()) {
             sb.append(item);
         }
         String thead = "<tr><th>Id</th><th>Mark</th><th>Mudel</th><th>Voimsus</th></tr>";
