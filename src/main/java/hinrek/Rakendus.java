@@ -9,8 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @SpringBootApplication
 public class Rakendus {
+    private final CarDao carDao;
+
     @Autowired
-    private CarDao carDao;
+    public Rakendus(CarDao carDao) {
+        this.carDao = carDao;
+    }
 
     @RequestMapping("/listall")
     String listall(String mark) {
@@ -33,7 +37,7 @@ public class Rakendus {
     }
 
     @RequestMapping("/kustuta")
-    public String kustuta(Integer id) {
+    String kustuta(Integer id) {
         Car car = carDao.findOne(id);
         carDao.delete(car);
         return car.mark + " " + car.mudel + " on kustutatud";
@@ -44,9 +48,3 @@ public class Rakendus {
         SpringApplication.run(Rakendus.class, args);
     }
 }
-
-// http://localhost:4201/leiamark?mark=Volvo
-// id 4 mark Volvo mudel s40 voimsus 420
-
-// http://localhost:4201/leiamudel?mudel=RS6
-// mark Audi mudel RS6 voimsus 666
