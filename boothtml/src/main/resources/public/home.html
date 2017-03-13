@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+	<title>Home</title>
+		<script>
+			console.log("pressed");
+			var connection = new XMLHttpRequest();
+			connection.onreadystatechange=dataReceived;
+			function onPress(){
+				var n1 = document.getElementById("box1").value;
+				var n2 = document.getElementById("box2").value;
+				var n3 = document.getElementById("box3").value;
+				var n4 = document.getElementById("box4").value;
+				connection.open("GET", "/pudrucal?banaan="+n1+"&mesi="+n2+"&helbed="+n3+"&piim="+n4, true);
+				connection.send();
+				
+			}
+			function dataReceived(){
+			
+				document.getElementById("answer").innerHTML=connection.responseText;
+			
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Calculation</h1>
+		Banaan:<input type="text" id="box1" /><br>
+		Mesi:<input type="text" id="box2" /><br>
+		Helbed:<input type="text" id="box3" /><br>
+		Piim:<input type="text" id="box4" /><br>
+		<input type="button" value="Calculate" onclick="onPress()" />
+		<div id="answer"></div>
+	</body>
+</html>
