@@ -13,17 +13,6 @@ public class rakendus {
   @Autowired
   private kasutajahaldur haldur;
 
-  @RequestMapping("/lisamine")
-  public String lisamine1(String knimi, float kogus){
-    if (knimi==null) {return "kasutaja määramata";}
-
-    kasutaja k = haldur.findOne(knimi);
-    if (k==null) {return knimi+ " puudub";}
-
-    k.saldo=k.saldo+kogus;
-    haldur.save(k);
-    return uuring1(knimi);
-  }
 
   @RequestMapping("/rahauuring")
   public String uuring1(String knimi){
@@ -31,14 +20,22 @@ public class rakendus {
     if (k==null) {
       return knimi+ " puudub";
     }
-    return knimi+" kontol "+k.saldo;
+    return knimi+" laen: "+k.laen+" tasutud: "+k.tasutud;
   }
 
-  @RequestMapping("/tervitusleht")
+  @RequestMapping("/inkasso")
+  public String inkasso(String knimi, float tasumine){
+    if (knimi==null) {return "kasutaja määramata";}
 
-    public String tervitus(String eesnimi){
-      return "Tere "+eesnimi+"!";
-    }
+    kasutaja k = haldur.findOne(knimi);
+    if (k==null) {return knimi+ " puudub";}
+
+    k.tasutud=k.tasutud+tasumine;
+    haldur.save(k);
+    return uuring1(knimi);
+  }
+
+
 
   public static void main(String[] args){
       System.getProperties().put("server.port", 1117);
@@ -48,3 +45,11 @@ public class rakendus {
     SpringApplication.run(rakendus.class);
   }
 }
+
+/*
+
+tanel laen: 1000.0 tasutud: 10.0
+tanel laen: 1000.0 tasutud: 110.0
+
+malle laen: 500.0 tasutud: 0.0
+*/

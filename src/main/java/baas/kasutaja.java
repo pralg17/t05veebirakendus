@@ -3,10 +3,11 @@ package baas;
 import javax.persistence.*;
 
 @Entity
-@Table(name="kasutajad")
+@Table(name="inkasso")
 
 public class kasutaja{
   @Id
-  public String kasutajanimi;
-  public Float saldo;
+  public String nimi;
+  public Float laen;
+  public Float tasutud;
 }
