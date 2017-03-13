@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Autod</title>
+
+    <style>
+        th {
+            text-align: left;
+        }
+    </style>
+
+</head>
+
+<body>
+<h2>Loetelu</h2>
+<div>
+    <table id="carList"></table>
+</div>
+
+<h2>Lisa</h2>
+<label>Mark</label><br>
+<input id="carMark" type="text"><br>
+<label>Mudel</label><br>
+<input id="carModel" type="text"><br>
+<label>Voimsus</label><br>
+<input id="carVoimsus" type="text"><br>
+
+<input type="button" value="lisa" onclick="addNewCar()">
+
+<h2>Kustuta</h2>
+<label>ID</label><br>
+<input id="deleteCarByID" type="text">
+<input type="button" value="kustuta" onclick="deleteCar()">
+
+
+<script>
+    var connection = new XMLHttpRequest();
+    connection.onreadystatechange = carData;
+
+    function displayAllCars() {
+        connection.open("GET", "/listall", true);
+        connection.send();
+    }
+    displayAllCars();
+
+    function addNewCar() {
+        var carMark = document.getElementById("carMark").value;
+        var carModel = document.getElementById("carModel").value;
+        var carPowaaa = document.getElementById("carVoimsus").value;
+        connection.open("GET", "/lisa?mark=" + carMark + "&mudel=" +
+            carModel + "&voimsus=" + carPowaaa, true);
+        connection.send();
+    }
+
+    function deleteCar() {
+        var deleteCar = document.getElementById("deleteCarByID").value;
+        connection.open("GET", "/kustuta?id=" + deleteCar, true);
+        connection.send();
+    }
+
+    function carData() {
+        document.getElementById("carList").innerHTML = connection.responseText;
+    }
+
+</script>
+</body>
+
+
+</html>
