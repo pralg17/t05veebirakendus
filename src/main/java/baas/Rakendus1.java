@@ -10,19 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 @RestController
 
 public class Rakendus1 {
-  /*
-  @RequestMapping("/lisamine")
-  public String lisamine1(String knimi, float kogus){
-    if(knimi==null){return "Kasutaja määramata";}
-    Kasutaja k=haldur.findOne(knimi);
-    if(k==null){
-      return knimi+" puudub";
-    }
-    k.saldo=k.saldo+kogus;
-    haldur.save(k);
-    return uuring1(knimi);
-  }
-  */
 
   @Autowired
   private KasutajateHaldur haldur;
@@ -33,14 +20,23 @@ public class Rakendus1 {
     if(k==null){
       return knimi+" puudub";
     }
-    return knimi+" auto: "+k.mark + " " + k.mudel + " " + k.aasta + "a. "+ k.voimsus+ "kW";
+    return knimi+" auto: "+k.mark + " " + k.mudel + " " + k.aasta + "a. "+ k.voimsus+ "kW " + k.labisoit + "km";
   }
 
-  @RequestMapping("/tervitusleht1")
-   public String tervitus1(String eesnimi) {
 
-       return "Tere, "+eesnimi+"!";
-   }
+  @RequestMapping("/lisamine")
+  public String lisamine1(String knimi, int teekond){
+    if(knimi==null){return "Kasutaja määramata";}
+    Kasutaja k=haldur.findOne(knimi);
+    if(k==null){
+      return knimi+" puudub";
+    }
+    k.labisoit=k.labisoit+teekond;
+    haldur.save(k);
+    return uuring1(knimi);
+  }
+
+
 
     public static void main(String[] args) {
       System.getProperties().put("server.port", 4302);

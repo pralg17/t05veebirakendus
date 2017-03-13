@@ -1,7 +1,16 @@
-CREATE TABLE kasutajad(
-kasutajanimi VARCHAR(50) NOT NULL PRIMARY KEY,
-saldo DECIMAL(8, 2)
+CREATE TABLE autod(
+omanik VARCHAR(50) NOT NULL PRIMARY KEY,
+mark VARCHAR(50) NOT NULL,
+mudel VARCHAR(50) NOT NULL,
+aasta INT NOT NULL,
+voimsus INT NOT NULL,
 );
 
-INSERT INTO kasutajad VALUES ('Juhan', 10);
-INSERT INTO kasutajad VALUES ('Malle', 14);
+INSERT INTO autod VALUES ('Mati', 'Volvo', 'S40', '2007', '120kW');
+INSERT INTO autod VALUES ('Kalle', 'Ford', 'Focus', '2002', '81kW');
+
+
+ALTER TABLE autod
+ADD labisoit INT NOT NULL;
+
+INSERT INTO autod VALUES ('Juhan', 'BMW', 'X6', '2013', '320kW', '65892');

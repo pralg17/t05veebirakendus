@@ -12,4 +12,5 @@ public class Kasutaja{
   public String mudel;
   public int aasta;
   public int voimsus;
+  public int labisoit;
 }
