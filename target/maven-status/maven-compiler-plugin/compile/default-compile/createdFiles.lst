@@ -1,5 +1,7 @@
 greg/User.class
 greg/App.class
+greg/TereDao.class
 greg/UserDao.class
 greg/UserController.class
 greg/Tere.class
+greg/TereController.class
