@@ -3,7 +3,6 @@ package hinrek;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,29 +12,14 @@ public class Rakendus {
     @Autowired
     private CarDao carDao;
 
-    @RequestMapping("/")
-    @ResponseBody
-    String kodukas() {
-
-        return "<h1>Tervitused!</h1>" +
-                "<h2>Valige tegevus</h2>" +
-                "<a href=\"/leiamark\">Otsi margi alusel</a><br>" +
-                "<a href=\"/lisa\">Lisa auto baasi</a><br>" +
-                "<a href=\"/leiamudel\">Otsi mudeli alusel</a><br>";
-    }
-
-    @RequestMapping("/leiamark")
-    String leiamark(String mark) {
-        Car car = carDao.findByMark(mark);
-
-        return " mark " + mark + " mudel " + car.mudel + " voimsus " + car.voimsus;
-    }
-
-    @RequestMapping("/leiamudel")
-    String leiamudel(String mudel) {
-        Car car = carDao.findByMudel(mudel);
-
-        return " mark " + car.mark + " mudel " + mudel + " voimsus " + car.voimsus;
+    @RequestMapping("/listall")
+    String listall(String mark) {
+        StringBuffer sb = new StringBuffer();
+        for(Car item : carDao.findAll()){
+            sb.append(item);
+        }
+        String thead = "<tr><th>Id</th><th>Mark</th><th>Mudel</th><th>Voimsus</th></tr>";
+        return thead + sb.toString();
     }
 
     @RequestMapping("/lisa")
@@ -46,6 +30,13 @@ public class Rakendus {
         car.voimsus = voimsus;
         carDao.save(car);
         return "Lisatud " + mark + mudel + voimsus;
+    }
+
+    @RequestMapping("/kustuta")
+    public String kustuta(Integer id) {
+        Car car = carDao.findOne(id);
+        carDao.delete(car);
+        return car.mark + " " + car.mudel + " on kustutatud";
     }
 
     public static void main(String[] args) {
