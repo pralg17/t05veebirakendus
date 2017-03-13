@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Successfully submitted:</h1>
+    <p th:text="'id: ' + ${tere.id}" />
+    <p th:text="'content: ' + ${tere.content}" />
+    <a href="/tere">Submit another message</a>
+</body>
+</html>
