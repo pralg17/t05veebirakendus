@@ -1,0 +1,12 @@
+CREATE TABLE riigiandmed(
+	riik VARCHAR(30),
+	rahvaarv INT,
+	pindala INT
+);
+
+INSERT INTO riigiandmed VALUES("Eesti", 1317797, 45339);
+INSERT INTO riigiandmed VALUES("Lati", 1971300, 64589);
+INSERT INTO riigiandmed VALUES("Leedu", 2888582, 65200);
+INSERT INTO riigiandmed VALUES("Soome", 5501043, 338424);
+INSERT INTO riigiandmed VALUES("Rootsi", 10000000, 450295);
+
