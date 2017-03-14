@@ -1,0 +1,10 @@
+CREATE TABLE customers(
+name VARCHAR(20) NOT NULL PRIMARY KEY,
+surname VARCHAR(30) NOT NULL,
+email VARCHAR(30) NOT NULL,
+number INT(10)
+);
+
+INSERT INTO customers VALUES ("Ed", "NoName", "noname@gmail.com", 59864458);
+INSERT INTO customers VALUES ("Angelina", "Evdokimova", "angel@gmail.com", 55585455);
+INSERT INTO customers VALUES ("Alex", "Tamm", "alex.tamm@gmail.com", 56832312);
