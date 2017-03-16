@@ -19,7 +19,7 @@ public class Rakendus {
     @RequestMapping("/leia")
 	String leia(String ruhm){
 		if(ruhm==null){return "ruhm sisestamata";}
-		Loeng loeng= new LoenguHaldur.findByRuhm(ruhm);
+		Loeng loeng= loenguHaldur.findByRuhm(ruhm);
 		
 		return "rühm: "+loeng.ruhm+"\n algus: "+loeng.algus+"\n lõpp: "+loeng.lopp+"\n paev: "+loeng.paev;
 	}
