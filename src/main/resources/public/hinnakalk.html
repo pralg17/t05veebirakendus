@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Hinnakalkulaator</title>
+  <script>
+  var yhendus=new XMLHttpRequest();
+  yhendus.onreadystatechange=andmedSaabusid;
+  function arvutamine(){
+    var a1=document.getElementById("kast1").value;
+    var a2=document.getElementById("kast2").value;
+    var a3=document.getElementById("kast3").value;
+    var aadress="/hinnakalkulaator?hind="+a1+"&kogus="+a2;
+    if(document.getElementById("kast3").checked){
+      aadress+="&klient=jah"
+    }
+    yhendus.open("GET", aadress, true);
+    yhendus.send();
+  }
+  function andmedSaabusid(){
+    document.getElementById("vastus").innerHTML=yhendus.responseText;
+  }
+  </script>
+</head>
+
+  <body>
+    <h3>Hinnakalkulaator</h3>
+    <p>
+      Sisesta eseme hind ja kogus ning saad vastuseks makstava summa.<br>
+      Kliendina lisandub soodustus -10%.<br>
+      Ostes rohkem kui 2 eset lisandub kogu summale soodustus -10%.
+    </p>
+    Hind: <input type="number" id="kast1">
+    Kogus: <input type="number" id="kast2">
+    Klient? <input type="checkbox" id="kast3"><br><br>
+    <input type="button" value="Arvuta hind" onclick="arvutamine()">
+    <div id="vastus">...</div>
+  </body>
+</html>
