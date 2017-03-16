@@ -10,31 +10,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 @SpringBootApplication
 public class Rakendus {
     @Autowired
-    private LugejateHaldur lugejaHaldur;
+    private LoenguHaldur loenguHaldur;
 	
 	@RequestMapping("/algus")
     String tervitusfunktsioon() {
         return "Ahoi!";
     }
     @RequestMapping("/leia")
-	String leia(String email){
-		if(email==null){return "aaress sisestamata";}
-	    Lugeja isik=lugejaHaldur.findByEmail(email);
-		if(isik==null){return email+" puudub baaisist";}
-		return email+" laenutusi "+isik.laenutusi;
+	String leia(String ruhm){
+		if(ruhm==null){return "ruhm sisestamata";}
+		Loeng loeng= new LoenguHaldur.findByRuhm(ruhm);
+		
+		return "rühm: "+loeng.ruhm+"\n algus: "+loeng.algus+"\n lõpp: "+loeng.lopp+"\n paev: "+loeng.paev;
 	}
+	//
 	
     @RequestMapping("/lisa")
-	String lisa(String email){
-	   Lugeja isik=new Lugeja();
-	   isik.email=email;
-	   isik.laenutusi=1;
-	   lugejaHaldur.save(isik);
-	   return "Lisatud "+email;
+	String lisa(String ruhm,String algus,String lopp,String paev){
+	   Loeng loeng=new Loeng();
+	   loeng.ruhm=ruhm;
+	   loeng.algus=algus;
+	   loeng.lopp=lopp;
+	   loeng.paev=paev;
+	   if(ruhm==null || algus==null || lopp==null || paev==null){return "midagi on url'is valesti";}
+	   loenguHaldur.save(loeng);
+	   return "Lisatud loeng rühmale "+ruhm;
 	}
 	
     public static void main(String[] args) {
-		System.getProperties().put("server.port", 42999);
+		System.getProperties().put("server.port", 5554);
         SpringApplication.run(Rakendus.class, args);
     }
 }
