@@ -2,4 +2,4 @@
 
 SpringBoot abil loodud loodud näitlik temaatiline veebirakendus
 
-Võimalusel kasutada eraldi klasse teemade grupeerimiseks ning andmebaasiühendust.
+Heroku link: https://hinnakalkulaator.herokuapp.com/hinnakalk.html
