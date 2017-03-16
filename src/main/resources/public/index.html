@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Toidunimekiri</title>
+
+    <style>
+        th {
+            text-align: left;
+        }
+    </style>
+
+</head>
+
+<body>
+<h2>Loetelu</h2>
+<div>
+    <table id="foodList"></table>
+</div>
+
+<h2>Lisa</h2>
+<label>Toit</label><br>
+<input id="food" type="text"><br>
+<label>Kogus</label><br>
+<input id="amount" type="text"><br>
+
+<input type="button" value="lisa" onclick="addNewFood()">
+
+<h2>Kustuta</h2>
+<label>ID</label><br>
+<input id="deleteFoodByID" type="text">
+<input type="button" value="kustuta" onclick="deleteFood()">
+
+
+<script>
+    var connection = new XMLHttpRequest();
+    connection.onreadystatechange = foodData;
+
+    function displayAllFood() {
+        connection.open("GET", "/listall", true);
+        connection.send();
+    }
+    displayAllFood();
+
+    function addNewFood() {
+        var food = document.getElementById("food").value;
+        var amount = document.getElementById("amount").value;
+        connection.open("GET", "/lisa?food=" + food + "&amount=" +
+            amount, true);
+        connection.send();
+    }
+
+    function deleteFood() {
+        var deleteFood = document.getElementById("deleteFoodByID").value;
+        connection.open("GET", "/kustuta?id=" + deleteFood, true);
+        connection.send();
+    }
+
+    function foodData() {
+        document.getElementById("foodList").innerHTML = connection.responseText;
+    }
+
+</script>
+</body>
+
+
+</html>

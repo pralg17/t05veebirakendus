@@ -1,0 +1,10 @@
+CREATE TABLE `toidunimekiri` (
+    `food` VARCHAR(255) NOT NULL ,
+    `amount` INT NOT NULL ,
+    ENGINE = InnoDB;
+
+INSERT INTO `toidunimekiri` (`food`, `amount`) VALUES
+    ('Piim', '2'),
+
+ALTER TABLE `toidunimekiri` ADD `id` INT NOT NULL AUTO_INCREMENT FIRST, ADD UNIQUE (`id`);
+ALTER TABLE `toidunimekiri` DROP PRIMARY KEY, ADD PRIMARY KEY(`id`);
