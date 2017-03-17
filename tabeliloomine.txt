@@ -1,0 +1,11 @@
+CREATE TABLE viljad(
+  nimi VARCHAR(30) NOT NULL PRIMARY KEY,
+  hind FLOAT(8, 2),
+  kogus FLOAT(5, 1) DEFAULT 0
+);
+
+INSERT INTO viljad VALUES ('kapsas', 0.39, 15.0);
+INSERT INTO viljad VALUES ('mugulsibul', 0.29, 20.0);
+INSERT INTO viljad VALUES ('porgand', 0.37, 25.0);
+INSERT INTO viljad VALUES ('paprika', 4.05, 10.0);
+INSERT INTO viljad VALUES ('kaalikas', 0.94, 5.0);
