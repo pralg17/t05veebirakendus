@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Arvutamine</title>
+		<script>
+			var yhendus = new XMLHttpRequest();
+			yhendus.onreadystatechange = andmedSaabusid;
+			function arvutamine(){
+				var kogus = document.getElementById("kogus").value;
+				var kaart = document.getElementById("kaart").value;
+				var aadress = "/hinnaKalk?arv1="+ kogus +"&kaart="+ kaart;
+				yhendus.open("GET", aadress, true);
+				yhendus.send();
+			}
+			function andmedSaabusid(){
+				document.getElementById("vastus").innerHTML=yhendus.responseText;
+			}
+		</script>
+	</head>
+	<body>
+		<input type="number" id="kogus">
+		<input type="number" id="kaart">
+		<input type="button" value="Leia hind" onclick="arvutamine()">
+		<div id="vastus">
+			Vastuse koht
+		</div>
+	</body>
+</html>

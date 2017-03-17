@@ -1,3 +1,5 @@
+https://veebirakendus1.herokuapp.com/hinnakalkulaator.html
+
 # t05veebirakendus
 
 SpringBoot abil loodud loodud näitlik temaatiline veebirakendus
