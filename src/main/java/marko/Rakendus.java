@@ -12,17 +12,26 @@ public class Rakendus {
     @RequestMapping("/algarv")
     public String getPrime(String number) {
         int i;
-        int converted_number = Integer.parseInt(number);
-        String answer = "";
-        for (i = 1; i < converted_number; i++) {
 
-            if (converted_number % i == 0 && i != converted_number && i != 1) {
-                answer = "Ei ole algarv";
+
+        try {
+            int converted_number = Integer.parseInt(number);
+            String answer = "";
+            for (i = 1; i < converted_number; i++) {
+
+                if (converted_number % i == 0 && i != 1) {
+                    answer = "Ei ole algarv";
+                }
             }
+
+            return answer;
+
+
+        } catch (Exception e) {
+            return "Sisend ei ole arv";
         }
 
 
-        return answer;
     }
 
 
