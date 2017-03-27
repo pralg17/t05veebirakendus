@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Welcome</title>
+		<script>
+			var connection = new XMLHttpRequest();
+			connection.onreadystatechange=data_here;
+			function searchData(){
+			var v_name = document.getElementById("name_search").value;
+			connection.open("GET", "/find?name="+v_name, true);
+			connection.send();
+			}
+			function data_here(){
+			document.getElementById("Result").innerHTML=connection.responseText;
+			}
+			function ShowAllData(){
+			connection.open("GET", "/showAll", true);
+			connection.send();
+			}
+			function add_Data(){
+			var name = document.getElementById("n_customer_name").value;
+			var surname = document.getElementById("n_customer_surname").value;
+			var email = document.getElementById("n_customer_email").value;
+			var number = document.getElementById("n_game_number").value;
+			connection.open("GET", "/newCustome?name="+name+"&surname="+surname+"&email="+email+"&number="+number, true);
+			connection.send();
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Search the customer</h1>
+		<input type="text" id="name_search" />
+		<input type="button" value="Search" onclick="searchData()">
+		
+		<br><br>
+		
+		<h1>All information</h1>
+		<input type="button" value="Show" onclick="ShowAllData()">
+		
+		<br><br>
+		
+		<!--<h1>New customer</h1>
+		<input type="text" id="n_customer_name" />
+		<input type="text" id="n_customer_surname" />
+		<input type="text" id="n_customer_email" />
+		<input type="text" id="n_customer_number" />
+		<input type="button" value="Add" onclick="add_Data()"> -->
+		
+		<br><br>
+		
+		<div id="Result">Info</div>
+	</body>
+</html>
