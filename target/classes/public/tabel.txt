@@ -1,0 +1,6 @@
+CREATE TABLE  creditcards  (
+    id int AUTO_INCREMENT PRIMARY KEY,
+    cardnumber bigint(12) NOT NULL,
+    cvv int(3) NOT NULL,
+    expidate varchar(5) NOT NULL
+);
