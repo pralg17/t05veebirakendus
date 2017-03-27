@@ -11,11 +11,11 @@ import java.util.*;
 @SpringBootApplication
 public class Rakendus{
 	@Autowired
-	public Customers customers;
+	//public Customers customers;
 	public customerManager customerManager;
 	
 	@RequestMapping("/find")
-	String find(String name){
+	public String find(String name){
 		if(name == null){
 			return "Such name is not recorded in database, try again.";
 		}
@@ -39,7 +39,7 @@ public class Rakendus{
 		
 		for(Customers customer : customerManager.findAll()){
 			index += 1;
-			show_data = show_data + index + "  " + "    " + customer.name + "    " + customer.surname + "    " + customer.email + "    " + customer;
+			show_data = show_data + index + "  " + "    " + customer.name + "    " + customer.surname + "    " + customer.email + "    " + customer.number;
 			show_data += "</br>";
 		}
 		
@@ -47,7 +47,7 @@ public class Rakendus{
 		
 	}
 	
-	@RequestMapping("/newCustomer")
+	/*@RequestMapping("/newCustomer")
 	public String new_customer(String name, String surname, String email, int number){
 		if(name == null || surname == null || email == null || number == 0){
 			return "All fields must filled in";
@@ -59,17 +59,14 @@ public class Rakendus{
 		n_customer.number = number;
 		customerManager.save(n_customer);
 		return "New customer is registred: " + name + surname;
-	}
+	}*/
 	
 	public static void main(String[] args){
-		System.getProperties().put("server.port", 4221);
+		System.getProperties().put("server.port", 42222);
 		SpringApplication.run(Rakendus.class);
 	}
 }
 
 //scl enable rh-maven33 bash
 //mvn package
-//java -jar target/boot3-1.0-SNAPSHOT.jar
-//java -jar target/boot3-1.0-SNAPSHOT.jar
-//java -jar target/boot3-1.0-SNAPSHOT.jar
 //java -jar target/boot3-1.0-SNAPSHOT.jar
