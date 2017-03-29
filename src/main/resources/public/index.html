@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Records</title>
+</head>
+<body>
+<h2>Loetelu</h2>
+<div>
+    <table id="recordList"></table>
+</div>
+<form>
+    <h2>Lisa</h2>
+    <label>Artist</label><br>
+    <input id="recordArtist" type="text"><br>
+    <label>Name</label><br>
+    <input id="recordName" type="text"><br>
+    <label>Label</label><br>
+    <input id="recordLabel" type="text"><br>
+    <label>Year</label><br>
+    <input id="recordYear" type="text"><br>
+    <label>Rating</label><br>
+    <select id="recordRating">
+        <option value="Mint (M)">Mint (M)</option>
+        <option value="Near Mint (NM or M-)">Near Mint (NM or M-)</option>
+        <option value="Very Good Plus (VG+)">Very Good Plus (VG+)</option>
+        <option value="Very Good (VG)">Very Good (VG)</option>
+        <option value="Good (G)">Good (G)</option>
+        <option value="Poor (P)">Poor (P)</option>
+    </select>
+    <input type="button" value="lisa" onclick="addNewRecord()">
+</form>
+
+<script>
+    var connection = new XMLHttpRequest();
+    connection.onreadystatechange = recordData;
+
+        function displayAllRecords() {
+                connection.open("GET", "/listall", true);
+                connection.send();
+           }
+        displayAllRecords();
+
+    function addNewRecord() {
+        var recordArtist = document.getElementById("recordArtist").value;
+        var recordName = document.getElementById("recordName").value;
+        var recordLabel = document.getElementById("recordLabel").value;
+        var recordYear = document.getElementById("recordYear").value;
+        var recordRating = document.getElementById("recordRating").value;
+        connection.open("GET", "/lisa?artist=" + recordArtist + "&name=" +
+            recordName + "&label=" + recordLabel+ "&year=" + recordYear+ "&rating=" + recordRating, true);
+        connection.send();
+    }
+
+    function recordData() {
+                document.getElementById("recordList").innerHTML = connection.responseText;
+    }
+
+</script>
+</body>
+</html>
