@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Rattad proov</title>
+		
+		<style>
+			th {
+				text-align: left;
+			}
+		</style>
+		
+	</head>
+	
+	<body>
+		<h2>Loetelu</h2>
+		<div><table id="bikeList"></table></div>
+		
+		<h2>Lisa</h2>
+		<label>Tootja</label><br>
+		<input id="bikeBrand" type="text"><br>
+		<label>Mudel</label><br>
+		<input id="bikeModel" type="text"><br>
+		<label>Hind</label><br>
+		<input id="bikePrice" type="text"><br>
+		<label>Tüüp</label><br>
+		<input id="bikeType" type="text"><br>
+		<input type="button" value="lisa" onclick="addNewBike()">
+		
+		<h2>Kustuta</h2>
+		<label>ID</label><br>
+		<input id="deleteBikeId" type="text">
+		<input type="button" value="kustuta" onclick="deleteBike()">
+		
+		
+		<script>
+			var connection = new XMLHttpRequest();
+			connection.onreadystatechange = bikeData;
+			
+			function displayBikeList() {
+				connection.open("GET", "/loetelu", true);
+				connection.send();
+			}
+			displayBikeList();
+			
+			function addNewBike() {
+				var bBrand = document.getElementById("bikeBrand").value;
+				var bModel = document.getElementById("bikeModel").value;
+				var bPrice = document.getElementById("bikePrice").value;
+				var bStrings = document.getElementById("bikeStrings").value;
+				var bType = document.getElementById("bikeType").value;
+				connection.open("GET", "/lisa?brand=" + bBrand + "&model=" +
+					bModel + "&price=" + bPrice + "&type=" + bType, true);
+				connection.send();
+			}
+			
+			function deleteBike() {
+				var delBike = document.getElementById("deleteBikeId").value;
+				connection.open("GET", "/kustuta?id=" + delBike, true);
+				connection.send();
+			}
+			
+			function bikeData() {
+				document.getElementById("bikeList").innerHTML = connection.responseText;
+			}			
+			
+		</script>
+	</body>
+
+
+</html>
