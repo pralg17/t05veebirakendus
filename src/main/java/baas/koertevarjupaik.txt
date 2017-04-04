@@ -1,0 +1,9 @@
+CREATE TABLE koerad(
+t9ug VARCHAR(30)NOT NULL PRIMARY KEY,
+nimi VARCHAR(30) NOT NULL,
+vanus INT (2)
+);
+
+INSERT INTO koerad VALUES("krants","Muri", 10);
+INSERT INTO koerad VALUES("taks","Bella", 4);
+INSERT INTO koerad VALUES("saksalamba","Carl", 5);
