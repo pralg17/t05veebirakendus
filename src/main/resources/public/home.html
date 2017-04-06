@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <title>Salaries</title>
+    <script>
+        var connection=new XMLHttpRequest();
+        connection.onreadystatechange=receivedData;
+        function search(){
+            var lastName=document.getElementById("searchName").value;
+            connection.open("GET", "/search?lastName="+lastName, true);
+            connection.send();
+        }
+		function create(){
+			var firstName = document.getElementById("firstName").value;
+			var lastName = document.getElementById("lastName").value;
+			var salary = document.getElementById("salary").value;
+
+			connection.open("GET", "/create?firstName="+firstName+"&lastName="+lastName+"&salary="+salary, true);
+			connection.send();
+		}
+        function receivedData(){
+            document.getElementById("response").innerHTML=connection.responseText;
+        }
+    </script>
+</head>
+<body>
+<div id="response"></div>
+<h1>Add salary</h1>
+<div>
+<label for="firstName">First Name</label>
+<input type="text" id="firstName" />
+</div>
+<div>
+<label for="lastName">Last Name</label>
+<input type="text" id="lastName" />
+</div>
+<div>
+<label for="salary">Salary</label>
+<input type="number" id="salary" />
+</div>
+<div>
+<input type="button" value="Create" onclick="create()"/>
+</div>
+<h1>Search by last name</h1>
+<input type="text" id="searchName" />
+<input type="button" value="Search" onclick="search()"/>
+</body>
+</html>
