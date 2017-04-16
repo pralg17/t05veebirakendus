@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<style>
+.laikast {
+  width: 50%;
+  height:70%;
+  background-color: #DCDCDC;
+  border: 2px solid #ccc;
+  text-align: center;
+  position: absolute;
+  right: 25%;
+  > h2 {
+    padding: 1rem;
+    margin: 0 0 0.5rem 0;
+  }
+  > p {
+    padding: 0 1rem;
+  }
+}
+.kitsaskast {
+  width: 80%;
+  background-color: white;
+  border: 2px solid #ccc;
+  text-align: center;
+  position: absolute;
+  right: 10%;
+  > h2 {
+    padding: 1rem;
+    margin: 0 0 0.5rem 0;
+  }
+  > p {
+    padding: 0 1rem;
+  }
+}
+.stripe-2 {
+  color: black;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    #ccc 10px,
+    #ccc 20px
+  ),
+  linear-gradient(
+    to bottom,
+    #eee,
+    #999
+  )
+}
+</style>
+<head>
+	<title>Tooted</title>
+	<script>
+		var connection=new XMLHttpRequest();
+        connection.onreadystatechange=receivedData;
+		function create(){
+			var kauplus=document.getElementById("kauplus").value;
+            var tooteNimi=document.getElementById("tooteNimi").value;
+			var hind=document.getElementById("hind").value;
+            connection.open("GET", "/create?kauplus="+kauplus+"&tooteNimi="+tooteNimi+"&hind="+hind, true);
+            connection.send();
+        }
+		function search(){
+			var tooteNimi = document.getElementById("search").value;
+			connection.open("GET", "/search?tooteNimi="+tooteNimi, true);
+			connection.send();
+		}
+		function receivedData(){
+            document.getElementById("response").innerHTML=connection.responseText;
+        }
+	</script>
+</head>
+<body background="background.gif">
+<div class="laikast">
+<div class="kitsaskast">
+<h2 class="stripe-2">Lisa toode</h2>
+<div id="response"></div>
+<div>
+<label for="tooteNimi">Kauplus:</label>
+<input type="text" id="kauplus" />
+</div>
+<br>
+<div>
+<label for="tooteNimi">Toote nimi:</label>
+<input type="text" id="tooteNimi" />
+</div>
+<br>
+<div>
+<label for="hind">Hind:</label>
+<input type="number" id="hind" />
+</div>
+<br>
+<div>
+<input type="button" value="Lisa" onclick="create()"/>
+</div>
+<br><br>
+<div>
+<label for="search">Otsi</label>
+<input type="text" id="search" />
+<input type="button" value="Otsi" onclick="search()" />
+</div>
+</html>

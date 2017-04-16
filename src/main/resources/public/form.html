@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tooted</title>
+	<script>
+		var connection=new XMLHttpRequest();
+        connection.onreadystatechange=receivedData;
+		function create(){
+			var kauplus=document.getElementById("kauplus").value;
+            var tooteNimi=document.getElementById("tooteNimi").value;
+			var hind=document.getElementById("hind").value;
+            connection.open("GET", "/create?kauplus="+kauplus+"&tooteNimi="+tooteNimi+"&hind="+hind, true);
+            connection.send();
+        }
+		function search(){
+			var tooteNimi = document.getElementById("search").value;
+			connection.open("GET", "/search?tooteNimi="+tooteNimi, true);
+			connection.send();
+		}
+		function receivedData(){
+            document.getElementById("response").innerHTML=connection.responseText;
+        }
+	</script>
+</head>
+<body>
+<div id="response"></div>
+<h1>Lisa toode</h1>
+<div>
+<label for="tooteNimi">Kauplus:</label>
+<input type="text" id="kauplus" />
+</div>
+<div>
+<label for="tooteNimi">Toote nimi:</label>
+<input type="text" id="tooteNimi" />
+</div>
+<div>
+<label for="hind">Hind:</label>
+<input type="number" id="hind" />
+</div>
+<br>
+<div>
+<input type="button" value="Lisa" onclick="create()"/>
+</div>
+<br>
+<div>
+<label for="search">Otsi</label>
+<input type="text" id="search" />
+<input type="button" value="Otsi" onclick="search()" />
+</div>
+</html>
