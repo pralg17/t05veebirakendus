@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Korterid</title>
+	<script>
+		var connection=new XMLHttpRequest();
+        connection.onreadystatechange=receivedData;
+		function create(){
+			var apartment=document.getElementById("apartment").value;
+            var county=document.getElementById("county").value;
+			var price=document.getElementById("price").value;
+            connection.open("GET", "/create?apartment="+apartment+"&county="+county+"&price="+price, true);
+            connection.send();
+        }
+		function search(){
+			var county = document.getElementById("search").value;
+			connection.open("GET", "/search?county="+county, true);
+			connection.send();
+		}
+		function receivedData(){
+            document.getElementById("response").innerHTML=connection.responseText;
+        }
+	</script>
+</head>
+<body>
+<div id="response"></div>
+<h1>Lisa korter</h1>
+<div>
+<label for="county">Korter:</label>
+<input type="text" id="apartment" />
+</div>
+<div>
+<label for="county">Maakond:</label>
+<input type="text" id="county" />
+</div>
+<div>
+<label for="price">Hind:</label>
+<input type="number" id="price" />
+</div>
+<br>
+<div>
+<input type="button" value="Lisa" onclick="create()"/>
+</div>
+<br>
+<div>
+<label for="search">Otsi</label>
+<input type="text" id="search" />
+<input type="button" value="Otsi" onclick="search()" />
+</div>
+</html>
