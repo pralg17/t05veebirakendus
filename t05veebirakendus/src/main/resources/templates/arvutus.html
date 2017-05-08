@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hinnakalkulaator</title>
+    <script>
+        var yhendus=new XMLHttpRequest();
+        yhendus.onreadystatechange=andmedSaabusid;
+        function arvutamine(){
+            var h=document.getElementById("kast1").value;
+            var k=document.getElementById("kast2").value;
+            
+            var aadress="/hinnakalkulaator?hind="+h+"&kogus="+k;
+   		 if(document.getElementById("kast3").checked){
+  		   aadress+="&allahindlus=ok"}
+    		   yhendus.open("GET", aadress, true);
+            yhendus.send();
+        }
+        function andmedSaabusid(){
+            document.getElementById("vastus").innerHTML=yhendus.responseText;
+        }
+    </script>
+</head>
+<body>
+    
+    <h1>Hinnakalkulaator</h1>
+  <input type="number" id="kast1">
+  <input type="number" id="kast2">
+
+  <p>Allahindlus 10%</p>
+  <input type="checkbox" id="kast3">
+  <p></p>
+  <input type="button" value="Arvuta hinda" onclick="arvutamine()"/>
+    <div id="vastus">Vastuse koht</div>  
+</body>
+</html>
