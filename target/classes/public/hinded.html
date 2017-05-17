@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>hinded</title>
+	<script>
+	var connection=new XMLHttpRequest();
+        connection.onreadystatechange=receivedData;
+		
+		function saveStudent(){
+			var firstName=document.getElementById("fname").value;
+			var lastName=document.getElementById("lname").value;
+			var grade=document.getElementById("grade").value;
+			connection.open("GET", "/save?firstName="+firstName+"&lastName="+lastName+"&grade="+grade);
+			connection.send();
+		}
+		function search(){
+		 var param = document.getElementById("search").value;
+		 connection.open("GET", "/search?grade="+param);
+		 connection.send();
+		}
+		
+		function receivedData(){
+            document.getElementById("response").innerHTML=connection.responseText;
+        }
+		</script>
+</head>
+<body>
+	<input type="search" id="search">
+	<input type="submit" value="Search" onclick="search()">
+
+	First name: <input type="text" id="fname"><br>
+	Last name: <input type="text" id="lname"><br>
+	Grade: <input type="number" id="grade"><br>
+	<input type="submit" value="Submit" onclick="saveStudent()">
+	
+	<div>
+		<p id="response"></p>
+	</div>
+ </body>
+ </html>
