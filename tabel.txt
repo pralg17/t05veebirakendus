@@ -1,0 +1,16 @@
+CREATE TABLE filmid(
+  nr INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nimi VARCHAR(80),
+  aasta INT,
+  seis ENUM ('vaadatud', 'pooleli', 'vaatamata'),
+  pikkus INT
+);
+
+
+INSERT INTO filmid VALUES (DEFAULT, 'Logan', 2017, 'vaatamata', 137);
+INSERT INTO filmid VALUES (DEFAULT, 'Guardians of the Galaxy Vol. 2', 2017, 'vaatamata', 136);
+INSERT INTO filmid VALUES (DEFAULT, 'John Wick: Chapter 2 ', 2017, 'vaatamata', 122);
+INSERT INTO filmid VALUES (DEFAULT, 'Split', 2016, 'vaadatud', 117);
+INSERT INTO filmid VALUES (DEFAULT, 'Rogue One', 2016, 'vaadatud', 133);
+INSERT INTO filmid VALUES (DEFAULT, 'Interstellar', 2014, 'vaadatud', 169);
+INSERT INTO filmid VALUES (DEFAULT, 'Snowden', 2016, 'pooleli', 134);
