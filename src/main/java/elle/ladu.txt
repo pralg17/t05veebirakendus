@@ -1,0 +1,10 @@
+
+CREATE TABLE tooted(
+jook VARCHAR(30)NOT NULL PRIMARY KEY,
+nimi VARCHAR(30) NOT NULL,
+kogus FLOAT (10)
+);
+
+INSERT INTO tooted VALUES("karastusjook","Coca-Cola", 0.250);
+INSERT INTO tooted VALUES("karastusjook","Aura õunamahl", 1);
+INSERT INTO tooted VALUES("alkohoolne jook","Bacardi Superior", 1);
