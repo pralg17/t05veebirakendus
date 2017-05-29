@@ -1,4 +1,4 @@
-package alari;
+package ats;
 
 import org.junit.*;
 import static org.junit.Assert.*;
@@ -10,7 +10,6 @@ public class EsimeneTest{
 	@Test
 	public void isikukoodiTest(){
 		Rakendus r=new Rakendus();
-		assertEquals("Tere, Ats Klemmer, Teie isikukood on 39511020244!", r.isik("Alari", "Verev", "39611240273"));
-		assertEquals("Tere, Aleks Klemmer, Teie isikukood on 39511020233!", r.isik("Olari", "Verev", "39511022453"));
+		assertEquals("Tere, Ats Klemmer, Teie isikukood on 39511020244!", r.isik("Ats", "Klemmer", "39511020244"));
 	}
 }
