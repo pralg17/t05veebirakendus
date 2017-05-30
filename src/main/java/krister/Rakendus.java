@@ -13,7 +13,6 @@ public class Rakendus {
 	@RequestMapping("/determinant")
 		String gk(String arv1, String arv2, String arv3, String arv4, String arv5, String arv6, String arv7, String arv8, String arv9){
 				int a1=Integer.parseInt(arv1);
-
 				int b1=Integer.parseInt(arv4);
 				int b2=Integer.parseInt(arv5);
 				int b3=Integer.parseInt(arv6);

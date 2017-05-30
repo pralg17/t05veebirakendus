@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<title>Arvutamine</title>
+  <script>
+  var yhendus=new XMLHttpRequest();
+  yhendus.onreadystatechange=andmedSaabusid;
+  function arvutamine(){
+   if(document.getElementById("kast1").value ==""){
+     var a1="1";
+    console.log(a1);
+    }else{
+    var a1=document.getElementById("kast1").value;
+    }
+    console.log(document.getElementById("kast1").value);
+    var a2=document.getElementById("kast2").value;
+    var a3=document.getElementById("kast3").value;
+    var b1=document.getElementById("kast4").value;
+    var b2=document.getElementById("kast5").value;
+    var b3=document.getElementById("kast6").value;
+    var c1=document.getElementById("kast7").value;
+    var c2=document.getElementById("kast8").value;
+    var c3=document.getElementById("kast9").value;
+    console.log(a1);
+    console.log(a3);
+    var aadress="/determinant?arv1="+a1+"&arv2="+a2+"&arv3="+a3+"&arv4="+b1+"&arv5="+b2+"&arv6="+b3+"&arv7="+c1+"&arv8="+c2+"&arv9="+c3;
+    yhendus.open("GET", aadress, true);
+    yhendus.send();
+  }
+  function andmedSaabusid(){
+    document.getElementById("vastus").innerHTML=yhendus.responseText;
+  }
+  </script>
+</head>
+<h1>Programm leiab determinandi või vektorite korrutise kui ülemine rida on tühi.</h1>
+<body>
+  <input type="number" id="kast1" placeholder="j" >
+  <input type="number" id="kast2" placeholder="j" >
+  <input type="number" id="kast3" placeholder="k" >
+  <br></br>
+  <input type="number" id="kast4" placeholder="a1" >
+  <input type="number" id="kast5" placeholder="a2" >
+  <input type="number" id="kast6" placeholder="a3" >
+  <br></br>
+  <input type="number" id="kast7" placeholder="b1" >
+  <input type="number" id="kast8" placeholder="b2" >
+  <input type="number" id="kast9" placeholder="b3" >
+  <br></br>
+  <input type="button" value="Vektrokorrutis/Determinant" onclick="arvutamine()"/>
+  <div id="vastus">Vastus</div>
+</body>
+</html>
