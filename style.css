@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-y: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+body {
+  margin: 0 auto;
+  box-shadow: 0 0 16px 4px gray;
+
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.limitwidth {
+  max-width: 800px;
+  padding: 15px;
+}
+
+input {
+  margin: 2px;
+  width: 100%;
+}
+
+input[!type="submit"] {
+  border: 1px solid gray;
+  padding: 5px;
+  font-size: 18px;
+  border-radius: 0;
+}
+
+input[type="submit"] {
+  border: 1px solid gray;
+  padding: 5px;
+  font-size: 17px;
+}
+
+.jsButton {
+  margin: 2px;
+  border: 1px solid gray;
+  padding: 5px;
+  font-size: 17px;
+  color: black;
+  background: snow;
+  text-decoration: none;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+.jsButton:hover {
+  background: darkgray;
+}
+
+@keyframes errorAnimate {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.error {
+  background: red;
+  border: 2px solid darkred;
+  width: 100%;
+  padding: 5px;
+  margin: 2px;
+  color: white;
+  white-space: nowrap;
+  animation-name: errorAnimate;
+  animation-duration: 0.75s;
+}
+
+.success {
+  background: green;
+  border: 2px solid darkgreen;
+  width: 100%;
+  padding: 5px;
+  margin: 2px;
+  color: black;
+  white-space: nowrap;
+  animation-name: errorAnimate;
+  animation-duration: 0.75s;
+}
+
+.titlebar::before {
+  padding: 0;
+  margin: 0;
+}
+.titlebar {
+  max-width: 800px;
+  margin: 0;
+  margin-bottom: 15px;
+  padding: 12px;
+  background: indigo;
+  color: white;
+}
+
+.clear {
+  color: white;
+  text-decoration: none;
+}
+
+.big {
+  text-size: 32px;
+
+}
