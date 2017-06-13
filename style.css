@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'PT Mono', monospace;
+}
+
+.wrapper {
+    display: flex;
+
+    height: 100%;
+    margin: auto;
+}
+h1{
+    text-align:center;
+    padding:20px;
+}
+
+
+
+
+.date {
+    color:black;
+    position:absolute;
+    text-align:center;
+    margin-left:580px;
+   background-color:beige
+    
+    
+
+}
+
+
+#toDoList {
+    box-shadow: 3px 3px 3px rgba(100, 100, 100, 0.1);
+    font-family: 'PT Mono', monospace;
+    font-size: 25px;
+    font-weight:bold;
+    height: 30px;
+    margin: 6px;
+    margin-top: 26px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+  
+}
+
+#toDo {
+    position: absolute;
+    right: 0;
+    top: 90;
+    min-width: 300px;
+    max-width: 500px;
+    font-family: 'PT Mono', monospace;
+    font-size: 15px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    color: grey;
+    background-color: rgba(255, 255, 255, 0.38);
+    box-shadow: 3px 3px 3px rgba(100, 100, 100, 0.1);
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.19);
+}
+
+th {
+    ;
+}
+
+
+tr {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    white-space: normal;
+}
+
+#xbutton {
+    flex: 1;
+    float: right;
+    display: inline;
+    cursor: pointer;
+  
+}
+
+#xtext {
+    flex: 1000000;
+    text-align: left;
+    margin-right: 20px;
+}
+
+
+
+@-ms-viewport {
+    width: device-width;
+}
