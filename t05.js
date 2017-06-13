@@ -1,3 +1,7 @@
+//lihtne veebirakendus, mis võimaldab salvestada päevaplaani tegevusi ning neid eemaldada
+
+
+
 window.onload = function () {
   
 
