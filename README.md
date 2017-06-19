@@ -1,5 +1,5 @@
-# t05veebirakendus
+# t10kontrolltoo_II
 
-SpringBoot abil loodud loodud näitlik temaatiline veebirakendus
+Ülesandes kolm punkti. Alusta esimesest ning tee vaikselt edasi. Iga tunni lõpul saada valminud seis githubi. Ülesande võib koju kaasa võtta ja lõike vaikselt mõelda ja katsetada. Puhas githubi minev kood aga peaks valmima tunnis.
 
-Võimalusel kasutada eraldi klasse teemade grupeerimiseks ning andmebaasiühendust.
+Kontrolltöö punktid annavad eksamihinde aluse - C, B või A. Eksamitulemuse saamiseks peavad kõik muud tööd + seminar sooritatud olema, need muudavad alushinnet kuni ühe tähe jagu.
